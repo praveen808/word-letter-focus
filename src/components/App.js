@@ -1,14 +1,29 @@
 import React, { Component } from 'react';
 
-class App extends Component {
+import Footer from "./footer";
+import Header from "./header";
+
+
+export default class App extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            name: "Praveen"
+        };
+    }
+
     render() {
+        setTimeout(() =>{
+            this.setState({
+                name: "Praveen Singh"
+            });
+        },1000);
        return (
-       <div>
-            <h1>Word Letter Focus 1</h1>
-            <h2>Word Letter Focus 2</h2>
+       <div className="appContainer">
+            <Header/>
+            <h1>{this.state.name} Word Letter Focus</h1>
+            <Footer/>
         </div>
         );
     }
 }
-
-export default App;
