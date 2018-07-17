@@ -5,23 +5,23 @@ import Header from "./header";
 
 
 export default class App extends React.Component {
+
     constructor(){
         super();
         this.state = {
+            title : "Welcome",
             name: "Praveen"
         };
     }
 
+    changeTitle(title){
+        this.setState({title});
+    }
+
     render() {
-        setTimeout(() =>{
-            this.setState({
-                name: "Praveen Singh"
-            });
-        },1000);
        return (
        <div className="appContainer">
-            <Header/>
-            <h1>{this.state.name} Word Letter Focus</h1>
+            <Header changeTitle={this.changeTitle.bind(this)} title={this.state.title} />
             <Footer/>
         </div>
         );
